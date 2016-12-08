@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { getAccount } from './services/accounts';
+import { getPreferences } from './services/preferences';
 import ProgressBar from './ProgressBar';
 import User from './User';
 import './App.css';
@@ -9,31 +10,31 @@ class App extends Component {
   componentWillMount() {
     const { user } = this.props;
 
+    this.setState({
+      accountData: {},
+      preferenceData: {}
+    });
+
     getAccount(user).then((data) => {
-      this.setState({ data });
+      this.setState({ accountData: data });
+    });
+
+    getPreferences(user).then((data) => {
+      this.setState({ preferenceData: data });
     });
   }
 
   render() {
-    let data = {};
-    let imageUrl = "";
-
-    if (this.state) {
-      data = this.state.data;
-    }
-
-    if (data.profile_image) {
-      imageUrl = data.profile_image.image_url_full;
-    }
+    const { name, username, completion_percentage, profile_image_optimal } = this.state.accountData;
 
     return (
       <div className="progressive-profile">
         <User
-          photo={ imageUrl }
-          username={ data.username }
-          fullname={ data.name }
+          photo={ profile_image_optimal }
+          username={ username }
+          fullname={ name }
         />
-        <ProgressBar percentage={ data.completion_percentage } />
+        <ProgressBar percentage={ completion_percentage } />
       </div>
     );
   }

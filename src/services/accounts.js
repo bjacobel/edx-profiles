@@ -57,7 +57,8 @@ export const getAccount = (accountId) => {
 
     return Object.assign({}, json, {
       completion,
-      completion_percentage
+      completion_percentage,
+      profile_image_optimal: json.profile_image.image_url_full
     })
   })
 }

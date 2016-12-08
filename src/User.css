@@ -7,6 +7,14 @@
 .fullname,
 .username {
   text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+}
+
+.profile-photo,
+.fullname,
+.username {
+  margin-bottom: 20px;
 }
 
 .fullname {
