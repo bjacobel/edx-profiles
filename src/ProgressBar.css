@@ -1,0 +1,19 @@
+.progress-bar {
+	display: block;
+	height: 5px;
+	margin: 10px 0 0 0;
+	width: 100%;
+}
+
+.progress-complete, .progress-incomplete {
+	display: inline-block;
+	height: 100%;
+}
+
+.progress-complete {
+	background: #008800;
+}
+
+.progress-incomplete {
+	background: #d6d6d6;
+}
