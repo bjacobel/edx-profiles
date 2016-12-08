@@ -6,7 +6,26 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+<<<<<<< e9c75efe48b0c85dee4dab069f96c944bfa27061
 * {
   box-sizing: border-box;
 }
 
+=======
+/* from platform  */
+.sr {
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    background: #fff;
+    color: #000;
+    position: absolute;
+    margin: -1px;
+    height: 1px;
+    width: 1px;
+    border: 0;
+    padding: 0;
+    overflow: hidden;
+    /* ensure there are spaces in sr text */
+    word-wrap: normal;
+}
+>>>>>>> a11yify progress bar
