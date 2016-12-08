@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 
-export default (DOMId) => {
-  ReactDOM.render(
-    <App />,
-    document.getElementById(DOMId)
-  );
+export default class ProgressiveProfile {
+  constructor(domId) {
+    ReactDOM.render(
+      <App />,
+      document.getElementById(domId)
+    );
+  }
 }
