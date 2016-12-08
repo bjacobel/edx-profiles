@@ -18,7 +18,7 @@ class App extends Component {
     }
 
     return (
-      <pre>{ JSON.stringify(data, null, 2) }</pre>
+      <pre className="blue">{ JSON.stringify(data, null, 2) }</pre>
     );
   }
 }
