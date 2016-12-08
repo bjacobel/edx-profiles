@@ -6,7 +6,9 @@ import './App.css';
 
 class App extends Component {
   componentWillMount() {
-    getAccount().then((data) => {
+    const { user } = this.props;
+
+    getAccount(user).then((data) => {
       this.setState({ data });
     });
   }

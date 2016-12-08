@@ -1,3 +1,3 @@
 import { render } from './index';
 
-render('root');
+render('root', 'staff');
