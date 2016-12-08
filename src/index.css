@@ -6,12 +6,10 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-<<<<<<< e9c75efe48b0c85dee4dab069f96c944bfa27061
 * {
   box-sizing: border-box;
 }
 
-=======
 /* from platform  */
 .sr {
     clip: rect(1px 1px 1px 1px);
@@ -28,4 +26,3 @@ body {
     /* ensure there are spaces in sr text */
     word-wrap: normal;
 }
->>>>>>> a11yify progress bar
