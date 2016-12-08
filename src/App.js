@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { getAccount } from './services/accounts';
+import ProgressBar from './ProgressBar';
 import './App.css';
 
 class App extends Component {
@@ -18,7 +19,10 @@ class App extends Component {
     }
 
     return (
-      <pre className="blue">{ JSON.stringify(data, null, 2) }</pre>
+      <div>
+        <ProgressBar percentage="0.25" />
+        <pre className="blue">{ JSON.stringify(data, null, 2) }</pre>
+      </div>
     );
   }
 }
