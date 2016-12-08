@@ -1,3 +1,6 @@
+import 'core-js/fn/object/keys';
+import 'core-js/fn/object/values';
+import 'core-js/fn/object/assign';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';

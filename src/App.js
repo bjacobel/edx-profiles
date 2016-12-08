@@ -22,7 +22,7 @@ class App extends Component {
 
     return (
       <div>
-        <ProgressBar percentage="0.25" />
+        <ProgressBar percentage={ data.completion_percentage } />
         <pre className="blue">{ JSON.stringify(data, null, 2) }</pre>
       </div>
     );

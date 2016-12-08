@@ -1,3 +1,9 @@
+import 'whatwg-fetch';
+
+const isdef = (key) => {
+  return (key !== null && typeof key !== undefined);
+};
+
 export const getAccount = (accountId) => {
   return fetch(`/api/user/v1/accounts/${accountId}`, {
     credentials: 'same-origin',
@@ -35,5 +41,23 @@ export const getAccount = (accountId) => {
       "email": "bjacobel@gmail.com",
       "date_joined": "2016-02-17T16:05:12Z"
     };
+  }).then((json) => {
+    const completion = {
+      bio: isdef(json.bio),
+      name: isdef(json.name),
+      profile_image: json.profile_image.has_image,
+      year_of_birth: isdef(json.year_of_birth),
+      level_of_education: isdef(json.level_of_education),
+      language_proficiencies: json.language_proficiencies.length > 0,
+      gender: isdef(json.gender),
+      mailing_address: isdef(json.mailing_address)
+    };
+
+    const completion_percentage = Object.values(completion).filter(x => x).length / Object.keys(completion).length;
+
+    return Object.assign({}, json, {
+      completion,
+      completion_percentage
+    })
   })
 }
