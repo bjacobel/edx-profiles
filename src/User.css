@@ -1,0 +1,18 @@
+.profile-photo {
+  border-radius: 50%;
+  width: 100%;
+  padding: 0 40px;
+}
+
+.fullname,
+.username {
+  text-align: center;
+}
+
+.fullname {
+  font-weight: 700;
+}
+
+.username {
+  font-weight: 400;
+}
