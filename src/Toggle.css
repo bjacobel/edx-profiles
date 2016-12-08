@@ -1,0 +1,27 @@
+.toggle-switch {
+    background: #000;
+    width: 40px;
+    border-radius: 10px;
+    height: 20px;
+    display: block;
+    padding: 2px;
+    position: relative;
+}
+
+.toggle-switch:before {
+    content: ' ';
+    background: #fff;
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+}
+
+.checked .toggle-switch:before {
+    left: auto;
+    right: 2px;
+}
+

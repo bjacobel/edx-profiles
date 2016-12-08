@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { getAccount } from './services/accounts';
 import { getPreferences } from './services/preferences';
 import ProgressBar from './ProgressBar';
+import Toggle from './Toggle';
 import User from './User';
 import './App.css';
 
@@ -29,6 +30,10 @@ class App extends Component {
 
     return (
       <div className="progressive-profile">
+        <Toggle
+          name="Public profile"
+          optionNames={{true: 'yes', false: 'no'}}
+        />
         <User
           photo={ profile_image_optimal }
           username={ username }
