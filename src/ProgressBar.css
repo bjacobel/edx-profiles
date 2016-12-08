@@ -1,7 +1,6 @@
 .progress-bar {
 	display: block;
 	height: 5px;
-	margin: 10px 0 0 0;
 	width: 100%;
 }
 
@@ -16,4 +15,14 @@
 
 .progress-incomplete {
 	background: #d6d6d6;
+}
+
+.progress-description {
+	font-family: 'Open Sans', sans-serif;
+	color: #a0a0a0;
+	margin-top: 20px;
+}
+
+.progress-description b {
+	color: #646464;
 }
