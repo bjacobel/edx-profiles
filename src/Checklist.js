@@ -1,21 +1,11 @@
 import React, { Component}  from 'react';
 
 import './Checklist.css';
+import Field from './Field';
 
 export default class Checklist extends Component {
   render() {
     const { completion, userId } = this.props;
-    const displayMapping = {
-      bio: 'About Me',
-      name: 'Full Name',
-      profile_image: 'Profile Photo',
-      year_of_birth: 'Year of Birth',
-      level_of_education: 'Education Completed',
-      language_proficiencies: 'Preferred Language',
-      gender: 'Gender',
-      goals: 'Goals'
-    };
-
 
     if (!completion) {
       // Don't display this component until we have data for it
@@ -52,10 +42,8 @@ export default class Checklist extends Component {
               .slice(0, 3)
               .map(([key, value]) => {
                 return (
-                  <li className="completion-item" key={ key }>
-                    <a className="profile-link" href={ `/u/${userId}` }>
-                      { displayMapping[key] }
-                    </a>
+                  <li className="completion-item" key={ key } userId={ userId }>
+                    <Field field={key} />
                   </li>
                 );
               })

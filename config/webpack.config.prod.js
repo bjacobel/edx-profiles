@@ -153,10 +153,7 @@ module.exports = {
       // "file" loader for svg
       {
         test: /\.svg$/,
-        loader: 'file',
-        query: {
-          name: 'static/media/[name].[hash:8].[ext]'
-        }
+        loader: 'url'
       }
     ]
   },

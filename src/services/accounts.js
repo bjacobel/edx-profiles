@@ -4,6 +4,17 @@ const isdef = (key) => {
   return (key !== null && key !== '' && typeof key !== undefined);
 };
 
+export const updateAccount = (accountId, diff) => {
+  return fetch(`/api/user/v1/accounts/${accountId}`, {
+    credentials: 'same-origin',
+    method: 'PATCH',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  }).then((data) => data.json())
+};
+
 export const getAccount = (accountId) => {
   return fetch(`/api/user/v1/accounts/${accountId}`, {
     credentials: 'same-origin',
