@@ -6,6 +6,7 @@ import ProgressBar from './ProgressBar';
 import User from './User';
 import Checklist from './Checklist';
 import './App.css';
+import { connect } from 'react-redux';
 
 class App extends Component {
   componentWillMount() {
@@ -42,4 +43,16 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(
+  state => state,
+  dispatch => {
+    return {
+      getAccount: (user) => {
+        // fire action to fetch account data
+      },
+      setAccount: () => {
+        // fire action to update account data
+      }
+    }
+  }
+)(App);

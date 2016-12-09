@@ -7,6 +7,14 @@ const accountData = (state={}, action) => {
   }
 };
 
+const percentCompleted = (state=0, action) => {
+  switch (action.type) {
+    default:
+      return state;
+  }
+}
+
 export const rootReducer = combineReducers({
-  accountData
+  accountData,
+  percentCompleted
 });
