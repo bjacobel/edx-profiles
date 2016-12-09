@@ -23,7 +23,7 @@ const mapStateToProps = () => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateAccount: (userId, data) => dispatch(userId, updateAccount(data))
+    updateAccount: (userId, data) => dispatch(updateAccount(userId, data))
   };
 }
 
