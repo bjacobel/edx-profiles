@@ -12,15 +12,7 @@ class Toggle extends Component {
 
   onChange() {
     this.setState({value: !this.state.value});
-  }
-
-  toggleClick() {
-    console.log('toggleClick');
-  }
-
-  onSubmit(e) {
-    e.preventDefault();
-    console.log('onSubmit');
+    this.props.onChange();
   }
 
   render() {
@@ -28,9 +20,10 @@ class Toggle extends Component {
     return (
       <div className={`toggle ${checked}`}>
         <label htmlFor={this.props.name} className="toggle-switch">
-          {this.props.name}
+          {this.props.optionNames[this.state.value]}
         </label>
         <input type="checkbox"
+               className="sr"
                checked={checked}
                aria-checked={checked}
                onChange={this.onChange.bind(this)}

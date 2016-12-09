@@ -1,14 +1,27 @@
+.toggle {
+    display: inline-block;
+}
+
 .toggle-switch {
-    background: #000;
-    width: 40px;
-    border-radius: 10px;
-    height: 20px;
-    display: block;
-    padding: 2px;
-    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .toggle-switch:before {
+    background: #000;
+    content: ' ';
+    width: 40px;
+    border-radius: 10px;
+    height: 20px;
+    display: inline-block;
+    padding: 2px;
+    position: relative;
+    vertical-align: middle;
+    margin-right: 7px;
+}
+
+.toggle-switch:after {
     content: ' ';
     background: #fff;
     display: block;
@@ -16,12 +29,11 @@
     height: 16px;
     border-radius: 8px;
     position: absolute;
-    left: 2px;
-    top: 2px;
+    left: 10px;
+    top: 10px;
 }
 
-.checked .toggle-switch:before {
-    left: auto;
-    right: 2px;
+.checked .toggle-switch:after {
+    left: 30px;
 }
 
