@@ -84,9 +84,9 @@ export function updateAccount(accountId, diff) {
   };
 }
 
-export function updateAccountSuccess(user) {
+export function updateAccountSuccess(data) {
   return {
     type: actionTypes.UPDATE_ACCOUNT_SUCCESS,
-    user
+    data
   };
 }
