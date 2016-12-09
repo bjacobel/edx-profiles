@@ -43,7 +43,7 @@ export default class Checklist extends Component {
               .map(([key, value]) => {
                 return (
                   <li className="completion-item" key={ key } userId={ userId }>
-                    <Field field={key} />
+                    <Field field={key} userId={ userId } />
                   </li>
                 );
               })

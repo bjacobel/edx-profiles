@@ -9,7 +9,8 @@
   text-decoration: underline;
 }
 
-.profile-link:after {
+.profile-link:after,
+.activate-field:after {
   content: '\00A0';
   background-image: url('./images/fa-pencil-square-o.svg');
   background-size: contain;
@@ -20,4 +21,24 @@
   position: absolute;
   right: 0;
   top: 0;
+}
+
+.activate-field {
+  cursor: pointer;
+}
+
+.activate-field.activated {
+  display: none;
+}
+
+.activate-field:hover {
+  text-decoration: underline;
+}
+
+.dropdown-wrapper {
+  display: none;
+}
+
+.dropdown-wrapper.activated {
+  display: block;
 }
