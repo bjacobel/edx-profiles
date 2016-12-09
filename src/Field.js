@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import classNames from 'classnames';
 
 import './Field.css';
 import Dropdown from './fields/Dropdown';
+import { updateAccount } from './redux/actions';
 
 const displayMapping = {
   bio: 'About Me',
@@ -15,18 +17,23 @@ const displayMapping = {
   goals: 'Goals'
 };
 
-export default class Field extends Component {
+const mapStateToProps = () => {
+  return {};
+}
+
+const mapDispatchToProps = () => {
+  return {
+    updateAccount
+  };
+}
+
+class Field extends Component {
   componentWillMount() {
-    this.setState({ activeFields: {} });
+    this.setState({ active: false });
   }
 
   toggleFieldActive(field) {
-    this.setState({
-      activeFields: Object.assign({}, this.state.activeFields, {
-        [field]: !this.state.activeFields[field]
-      })
-    });
-    console.log('toggling')
+    this.setState({ active: !this.state.active });
   }
 
   render() {
@@ -41,15 +48,18 @@ export default class Field extends Component {
       return (
         <div>
           <div
-            className={ classNames('activate-field', { activated: this.state.activeFields[field] }) }
+            className={ classNames('activate-field', { activated: this.state.active }) }
             onClick={ () => this.toggleFieldActive(field) }
           >
             { displayMapping[field] }
           </div>
-          <div className={ classNames('dropdown-wrapper', { activated: this.state.activeFields[field] }) }>
+          <div className={ classNames('dropdown-wrapper', { activated: this.state.active }) }>
             <Dropdown
               defaultOption={ displayMapping[field] }
-              onChange={ () => this.toggleFieldActive(field) }
+              onChange={ (event) => {
+                this.toggleFieldActive(field);
+                this.props.updateAccount({ [field]: event.target.value })
+              } }
               options={ {
                 p: 'Doctorate',
                 m: 'Master’s or professional degree',
@@ -70,5 +80,10 @@ export default class Field extends Component {
     }
   }
 }
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Field);
 
 

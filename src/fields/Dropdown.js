@@ -7,7 +7,11 @@ export default class Dropdown extends Component {
     const { options, defaultOption, onChange } = this.props;
 
     return (
-      <select className="dropdown" onChange={ onChange }>
+      <select className="dropdown" onChange={ (event) => {
+        if (event.type === 'change') {
+          onChange(event);
+        }
+      }}>
         <option disabled selected>{ defaultOption }</option>
         { Object.entries(options).map(([key, value]) => {
           return <option value={ key }>{ value }</option>;
