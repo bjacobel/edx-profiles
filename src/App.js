@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import { getAccount } from './services/accounts';
 import { getPreferences } from './services/preferences';
@@ -6,7 +7,7 @@ import ProgressBar from './ProgressBar';
 import User from './User';
 import Checklist from './Checklist';
 import './App.css';
-import { connect } from 'react-redux';
+import { fetchAccount, updateAccount } from './redux/actions';
 
 class App extends Component {
   componentWillMount() {
@@ -47,12 +48,14 @@ export default connect(
   state => state,
   dispatch => {
     return {
-      getAccount: (user) => {
+      fetchAccount: (user) => {
         // fire action to fetch account data
+        dispatch(fetchAccount(user));
       },
-      setAccount: () => {
+      updateAccount: (user, data) => {
         // fire action to update account data
+        dispatch(updateAccount(user, data));
       }
-    }
+    };
   }
 )(App);
