@@ -78,8 +78,9 @@ export function updateAccount(accountId, diff) {
       },
       body: diff
     })
-    .then((data) => {
-      dispatch(updateAccountSuccess(data.json()));
+    .then(data => data.json())
+    .then((json) => {
+      dispatch(updateAccountSuccess(json));
     });
   };
 }
