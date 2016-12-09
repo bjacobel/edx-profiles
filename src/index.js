@@ -5,10 +5,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
 export const render = (domId, userId) => {
   ReactDOM.render(
-    <App user={ userId } />,
+    (
+      <Provider store={store}>
+        <App user={ userId } />
+      </Provider>
+    ),
     document.getElementById(domId)
   );
 }
