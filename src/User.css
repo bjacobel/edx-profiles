@@ -1,7 +1,7 @@
 .profile-photo {
   border-radius: 50%;
   width: 100%;
-  padding: 0 40px;
+  padding: 0 25%;
 }
 
 .fullname,
@@ -23,5 +23,5 @@
 
 .username {
   font-weight: 400;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }

@@ -5,6 +5,7 @@ import { getPreferences } from './services/preferences';
 import ProgressBar from './ProgressBar';
 import Toggle from './Toggle';
 import User from './User';
+import Checklist from './Checklist';
 import './App.css';
 
 class App extends Component {
@@ -26,7 +27,7 @@ class App extends Component {
   }
 
   render() {
-    const { name, username, completion_percentage, profile_image_optimal } = this.state.accountData;
+    const { name, username, completion_percentage, profile_image_optimal, completion } = this.state.accountData;
 
     return (
       <div className="progressive-profile">
@@ -40,6 +41,7 @@ class App extends Component {
           fullname={ name }
         />
         <ProgressBar percentage={ completion_percentage } />
+        <Checklist completion={ completion } userId={ username } />
       </div>
     );
   }

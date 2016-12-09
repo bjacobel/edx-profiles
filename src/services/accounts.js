@@ -1,7 +1,7 @@
 import 'whatwg-fetch';
 
 const isdef = (key) => {
-  return (key !== null && typeof key !== undefined);
+  return (key !== null && key !== '' && typeof key !== undefined);
 };
 
 export const getAccount = (accountId) => {
@@ -14,10 +14,10 @@ export const getAccount = (accountId) => {
   .catch((error) => {
     return {
       "username": "bjacobel",
-      "bio": "This is my bio it is a great bio",
+      "bio": "",
       "requires_parental_consent": false,
       "name": "Brian Jacobel",
-      "country": "US",
+      "country": null,
       "is_active": true,
       "profile_image": {
         "image_url_full": "https://d1kekzok76m982.cloudfront.net/prod/1e16a5d4a450eac5d6b261e65c13627d_500.jpg?v=1481243402",
@@ -26,8 +26,8 @@ export const getAccount = (accountId) => {
         "image_url_small": "https://d1kekzok76m982.cloudfront.net/prod/1e16a5d4a450eac5d6b261e65c13627d_30.jpg?v=1481243402",
         "has_image": true
       },
-      "year_of_birth": 1992,
-      "level_of_education": "b",
+      "year_of_birth": null,
+      "level_of_education": null,
       "accomplishments_shared": false,
       "goals": "Applying for a developer position",
       "language_proficiencies": [
@@ -35,7 +35,7 @@ export const getAccount = (accountId) => {
           "code": "en"
         }
       ],
-      "gender": "m",
+      "gender": null,
       "account_privacy": "all_users",
       "mailing_address": "",
       "email": "bjacobel@gmail.com",
@@ -45,12 +45,13 @@ export const getAccount = (accountId) => {
     const completion = {
       bio: isdef(json.bio),
       name: isdef(json.name),
+      country: isdef(json.name),
       profile_image: json.profile_image.has_image,
       year_of_birth: isdef(json.year_of_birth),
       level_of_education: isdef(json.level_of_education),
       language_proficiencies: json.language_proficiencies.length > 0,
       gender: isdef(json.gender),
-      mailing_address: isdef(json.mailing_address)
+      goals: isdef(json.goals)
     };
 
     const completion_percentage = Object.values(completion).filter(x => x).length / Object.keys(completion).length;

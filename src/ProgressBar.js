@@ -4,8 +4,8 @@ import './ProgressBar.css';
 
 class ProgressBar extends Component {
   render() {
-    const percentComplete = this.props.percentage * 100 + '%',
-          percentIncomplete = 100 - (this.props.percentage * 100) + '%';
+    const percentComplete = `${Math.floor(this.props.percentage * 100)}%`,
+          percentIncomplete = `${100 - Math.floor(this.props.percentage * 100)}%`;
     return (
       <div>
         <label className="progress-description" htmlFor="progress-bar">Profile: <b>{ percentComplete } Complete</b></label>

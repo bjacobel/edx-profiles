@@ -1,0 +1,46 @@
+.checklist {
+  margin-top: 30px;
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+}
+
+.checklist ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 10px;
+}
+
+.completion-item {
+  margin-bottom: 5px;
+  line-height: 1.75;
+  width: 100%;
+  position: relative;
+}
+
+.profile-link {
+  width: 100%;
+  display: block;
+  color: black;
+  text-decoration: none;
+}
+
+.profile-link:hover {
+  text-decoration: underline;
+}
+
+.profile-link:after {
+  content: '\00A0';
+  background-image: url('./images/fa-pencil-square-o.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 20px;
+  width: 20px;
+  margin: 4px 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.list-extended {
+  margin: 0;
+}
