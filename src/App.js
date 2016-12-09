@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getAccount } from './services/accounts';
 import { getPreferences } from './services/preferences';
 import ProgressBar from './ProgressBar';
 import User from './User';
@@ -13,14 +12,7 @@ class App extends Component {
   componentWillMount() {
     const { user } = this.props;
 
-    this.setState({
-      accountData: {},
-      preferenceData: {}
-    });
-
-    getAccount(user).then((data) => {
-      this.setState({ accountData: data });
-    });
+    this.props.fetchAccount(user);
 
     getPreferences(user).then((data) => {
       this.setState({ preferenceData: data });
@@ -28,7 +20,8 @@ class App extends Component {
   }
 
   render() {
-    const { name, username, completion_percentage, profile_image_optimal, completion } = this.state.accountData;
+    const { name, username, profile_image_optimal } = this.props.accountData,
+          {completion_percentage, completion } = this.props.percentCompleted;
 
     return (
       <div className="progressive-profile">
@@ -48,13 +41,13 @@ export default connect(
   state => state,
   dispatch => {
     return {
-      fetchAccount: (user) => {
+      fetchAccount: (accountId) => {
         // fire action to fetch account data
-        dispatch(fetchAccount(user));
+        dispatch(fetchAccount(accountId));
       },
-      updateAccount: (user, data) => {
+      updateAccount: (accountId, data) => {
         // fire action to update account data
-        dispatch(updateAccount(user, data));
+        dispatch(updateAccount(accountId, data));
       }
     };
   }
