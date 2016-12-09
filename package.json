@@ -48,8 +48,8 @@
   },
   "dependencies": {
     "core-js": "^2.4.1",
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1"
+    "preact": "^7.1.0",
+    "preact-compat": "^3.9.4"
   },
   "scripts": {
     "start": "node scripts/start.js",
@@ -84,6 +84,13 @@
     ]
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "settings": {
+      "import/resolver": {
+        "webpack": {
+          "config": "config/webpack.config.dev.js"
+        }
+      }
+    }
   }
 }
