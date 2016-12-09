@@ -1,8 +1,7 @@
 export const actionTypes = {
-  FETCH_ACCOUNT: 'FETCH_ACCOUNT',
   FETCH_ACCOUNT_SUCCESS: 'FETCH_ACCOUNT_SUCCESS',
   FETCH_ACCOUNT_FAILURE: 'FETCH_ACCOUNT_FAILURE',
-  UPDATE_ACCOUNT: 'UPDATE_ACCOUNT'
+  UPDATE_ACCOUNT: 'UPDATE_ACCOUNT_SUCCESS'
 };
 
 const defaultUserData = {
@@ -68,9 +67,26 @@ export function fetchAccountFailure(data) {
   };
 }
 
-export function updateAccount(user) {
+export function updateAccount(accountId, diff) {
+  return function(dispatch) {
+    fetch(`/api/user/v1/accounts/${accountId}`, {
+      credentials: 'same-origin',
+      method: 'PATCH',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: diff
+    })
+    .then((data) => {
+      dispatch(updateAccountSuccess(data.json()));
+    });
+  };
+}
+
+export function updateAccountSuccess(user) {
   return {
-    type: actionTypes.UPDATE_ACCOUNT,
+    type: actionTypes.UPDATE_ACCOUNT_SUCCESS,
     user
   };
 }
