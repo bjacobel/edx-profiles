@@ -69,7 +69,7 @@ export function fetchAccountFailure(data) {
 
 export function updateAccount(accountId, diff) {
   return function(dispatch) {
-    fetch(`/api/user/v1/accounts/${accountId}`, {
+    return fetch(`/api/user/v1/accounts/${accountId}`, {
       credentials: 'same-origin',
       method: 'PATCH',
       headers: {

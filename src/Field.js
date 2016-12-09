@@ -21,9 +21,9 @@ const mapStateToProps = () => {
   return {};
 }
 
-const mapDispatchToProps = () => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    updateAccount
+    updateAccount: (userId, data) => dispatch(userId, updateAccount(data))
   };
 }
 
@@ -58,7 +58,7 @@ class Field extends Component {
               defaultOption={ displayMapping[field] }
               onChange={ (event) => {
                 this.toggleFieldActive(field);
-                this.props.updateAccount({ [field]: event.target.value })
+                this.props.updateAccount(userId, { [field]: event.target.value })
               } }
               options={ {
                 p: 'Doctorate',

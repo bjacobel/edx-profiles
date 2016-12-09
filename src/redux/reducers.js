@@ -14,8 +14,6 @@ const accountData = (state={}, action) => {
       });
     case actionTypes.UPDATE_ACCOUNT_SUCCESS:
       return Object.assign(state, action.data);
-    // case actionTypes.FETCH_ACCOUNT_FAILURE:
-    //   return Object.assign({}, state, defaultUserData);
     default:
       return state;
   }
